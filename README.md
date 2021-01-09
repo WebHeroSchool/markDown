@@ -365,12 +365,12 @@ class McLaren extends Car {
   }
 }
 ```
-5. ES-классы
+# 5. ES-классы
 
 Классы появились в JavaScript сравнительно недавно. Их можно назвать «синтаксическим сахаром». В основе того, что получается при использовании классов, лежат, как и прежде, прототипы объектов. Но код, в котором применяются классы, выглядит иначе. В целом, если есть такая возможность, ES-классы стоит предпочесть обычным функциям-конструкторам.
 
-Плохо:
-
+**Плохо:**
+```
 const Person = function(name) {
   if (!(this instanceof Person)) {
     throw new Error("Instantiate Person with `new` keyword");
@@ -393,9 +393,9 @@ const Student = function(name, school) {
 Student.prototype = Object.create(Person.prototype);
 Student.prototype.constructor = Student;
 Student.prototype.printSchoolName = function printSchoolName() { /**/ };
-
-Хорошо:
-
+```
+**Хорошо:**
+```
 class Person {
   constructor(name) {
     this.name = name;
@@ -416,11 +416,12 @@ class Student extends Person {
     /* ... */
   }
 }
+```
 
 Организуйте методы так, чтобы их можно было бы объединять в цепочки. Этот паттерн используют многие библиотеки — такие, как jQuery и Lodash. В результате ваш код будет более компактным, чем без использования этого паттерна. Речь идёт о том, что в конце каждой из функций класса нужно возвращать this. Это позволит объединять вызовы таких функций в цепочки.
 
-Плохо:
-
+**Плохо:**
+```
 class Person {
   constructor(name) {
     this.name = name;
@@ -443,9 +444,9 @@ const person = new Person("John");
 person.setSurname("Doe");
 person.setAge(29);
 person.save();
-
-Хорошо:
-
+```
+**Хорошо:**
+```
 class Person {
   constructor(name) {
     this.name = name;
@@ -474,3 +475,4 @@ const person = new Person("John")
     .setSurname("Doe")
     .setAge(29)
     .save();
+```
