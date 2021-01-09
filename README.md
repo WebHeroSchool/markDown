@@ -37,15 +37,15 @@ if (user.age > 30) {
 }
 ```
 Хорошо:
-
+```
 const MAX_AGE = 30;
 let daysSinceLastVisit = 10;
 let currentYear = new Date().getFullYear();
-
+```
 ...
-
+```
 const isUserOlderThanAllowed = user.age > MAX_AGE;
-
+```
 Не надо добавлять в имена переменных дополнительные слова, в которых нет необходимости.
 
 Плохо:
